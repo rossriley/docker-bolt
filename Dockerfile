@@ -43,4 +43,7 @@ ADD config/nginx.conf /etc/nginx/sites-available/default
 EXPOSE 80 443
 
 ADD ./ /var/www/
+
+RUN cd /var/www/ && composer update
+
 CMD ["/usr/bin/supervisord", "-n"]
