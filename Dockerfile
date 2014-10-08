@@ -45,6 +45,6 @@ EXPOSE 80 443
 ADD ./ /var/www/
 
 RUN cd /var/www/ && composer update
-RUN cd /var/www/ && vendor/bin/nut user:add admin Admin admin@bolt.cm password
+RUN cd /var/www/ && vendor/bin/nut user:add admin Admin admin@bolt.cm password root
 
 CMD ["/usr/bin/supervisord", "-n"]
