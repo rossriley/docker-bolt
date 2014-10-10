@@ -6,5 +6,5 @@ set -- $BOLT_EXT
 for element in $@
 do
     echo "Installing extestion $element";
-    ./vendor/bin/nut extensions:install "$element";
+    ./vendor/bin/nut extensions:install $element;
 done
