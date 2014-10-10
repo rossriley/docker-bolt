@@ -44,8 +44,9 @@ EXPOSE 80 443
 
 ADD ./ /var/www/
 
+RUN chmod +x /var/www/start.sh
 RUN cd /var/www/ && composer update
-RUN cd /var/www/ && chmod -R 0777 ./app
+RUN chmod -R 0777 /var/www/app
 RUN cd /var/www/ && vendor/bin/nut database:update
 RUN cd /var/www/ && vendor/bin/nut user:add admin Admin admin@bolt.cm password root
 
