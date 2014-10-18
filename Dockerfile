@@ -1,8 +1,9 @@
-FROM        ubuntu:14.04
+FROM        ubuntu:raring
 MAINTAINER  Ross Riley "riley.ross@gmail.com"
 
 # Install nginx
 ENV HOME /root
+RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
