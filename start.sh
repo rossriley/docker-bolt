@@ -19,5 +19,5 @@ fi
 
 if [ -n $BOLT_TITLE ]
 then
-    eval "./vendor/bin/nut config:set sitename $BOLT_TITLE";
+    eval "./vendor/bin/nut config:set sitename '$BOLT_TITLE'";
 fi
