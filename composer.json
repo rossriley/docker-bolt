@@ -22,10 +22,6 @@
     
     "extra":{
         "bolt-web-dir": "./public"
-    },
-    
-    "autoload": {
-        "files": ["vendor/bolt/bolt/app/lib.php"]
     }
     
     
