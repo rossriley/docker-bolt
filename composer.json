@@ -11,7 +11,7 @@
             "email": "riley.ross@gmail.com"
         }
     ],
-    "minimum-stability": "beta",
+    "minimum-stability": "stable",
     "config": {
         "preferred-install": "dist"
     },
