@@ -3,7 +3,8 @@
     "require": {
         "bolt/bolt": "dev-master@dev",
         "composer/composer": "1.0.*@dev",
-        "ircmaxell/random-lib": "dev-master@dev"
+        "ircmaxell/random-lib": "dev-master@dev",
+        "symfony/console": "2.5"
     },
     "authors": [
         {
