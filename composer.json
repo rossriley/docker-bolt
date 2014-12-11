@@ -1,7 +1,7 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "dev-master"
+        "bolt/bolt": "dev-master@dev"
     },
     "authors": [
         {
@@ -9,7 +9,7 @@
             "email": "riley.ross@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     
     "scripts": {
         "post-install-cmd": [
