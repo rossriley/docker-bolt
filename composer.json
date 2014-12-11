@@ -1,7 +1,8 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "dev-master@dev"
+        "bolt/bolt": "dev-master@dev",
+        "composer/composer": "1.0.*@dev"
     },
     "authors": [
         {
