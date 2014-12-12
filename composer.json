@@ -1,10 +1,7 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "dev-master@dev",
-        "composer/composer": "1.0.*@dev",
-        "ircmaxell/random-lib": "dev-master@dev",
-        "symfony/console": "2.5"
+        "bolt/bolt": "dev-master"
     },
     "authors": [
         {
@@ -12,10 +9,7 @@
             "email": "riley.ross@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "config": {
-        "preferred-install": "dist"
-    },
+    "minimum-stability": "dev",
     "prefer-stable": true,    
     "scripts": {
         "post-install-cmd": [
