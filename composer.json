@@ -24,6 +24,5 @@
     "extra":{
         "bolt-web-dir": "./public"
     }
-
     
 }
