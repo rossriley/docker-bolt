@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 chmod -R 0777 ./app;
 IFS=","
 set -- $BOLT_EXT
@@ -8,11 +8,16 @@ do
     eval "./vendor/bin/nut extensions:install $element";
 done
 
-if [ -n $BOLT_THEME ]
+if [[ $BOLT_THEME ]]
 then
     echo "Installing theme $BOLT_THEME";
     eval "./vendor/bin/nut config:set theme demo";
     eval "ln -sf ../../extensions/vendor/$BOLT_THEME public/theme/demo"
 else
-  echo -e "TESTVAR not set\n"
+  echo -e "BOLT_THEME not set\n"
+fi
+
+if [[ $BOLT_TITLE ]]
+then
+    eval "./vendor/bin/nut config:set sitename '$BOLT_TITLE'";
 fi
