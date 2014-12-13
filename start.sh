@@ -8,7 +8,7 @@ do
     eval "./vendor/bin/nut extensions:install $element";
 done
 
-if [[ $BOLT_THEME ]]
+if [ -v $BOLT_THEME ]
 then
     echo "Installing theme $BOLT_THEME";
     eval "./vendor/bin/nut config:set theme demo";
@@ -17,7 +17,7 @@ else
   echo -e "BOLT_THEME not set\n"
 fi
 
-if [[ $BOLT_TITLE ]]
+if [ -v $BOLT_TITLE ]
 then
     eval "./vendor/bin/nut config:set sitename '$BOLT_TITLE'";
 fi
