@@ -13,6 +13,7 @@ then
     echo "Installing theme $BOLT_THEME";
     eval "./vendor/bin/nut config:set theme demo";
     eval "ln -sf ../../extensions/vendor/$BOLT_THEME public/theme/demo"
+    eval "ln -sf ../../extensions/vendor/$BOLT_THEME public/theme/`basename $BOLT_THEME`"
 else
   echo -e "BOLT_THEME not set\n"
 fi
