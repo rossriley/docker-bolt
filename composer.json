@@ -1,7 +1,9 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "dev-master"
+        "bolt/bolt": "~2.0",
+        "composer/composer": "1.0.*@dev",
+        "ircmaxell/random-lib": "dev-master"
     },
     "authors": [
         {
@@ -9,9 +11,8 @@
             "email": "riley.ross@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    
+    "minimum-stability": "beta",
+    "prefer-stable": true,    
     "scripts": {
         "post-install-cmd": [
             "Bolt\\Composer\\ScriptHandler::installAssets"
@@ -24,5 +25,5 @@
     "extra":{
         "bolt-web-dir": "./public"
     }
-
+    
 }
