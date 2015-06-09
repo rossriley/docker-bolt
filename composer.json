@@ -1,7 +1,7 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "~2.2",
+        "bolt/bolt": "2.1.9",
         "composer/composer": "1.0.*@dev",
         "ircmaxell/random-lib": "dev-master"
     },
