@@ -45,7 +45,7 @@ RUN cd /var/www/ && composer update
 RUN chmod -R 0777 /var/www/app
 RUN cd /var/www/ && vendor/bin/nut database:update
 RUN cd /var/www/ && vendor/bin/nut user:add admin Admin admin@bolt.cm password root
-RUN ln -sf /var/www/vendor/bolt/bolt/theme/base-2014 /var/www/public/theme/base-2014
+RUN ln -sf /var/www/vendor/bolt/bolt/theme/base-2016 /var/www/public/theme/base-2016
 RUN ln -sf /var/www/vendor/bolt/bolt/theme /var/www/theme
 
 CMD ["/usr/bin/supervisord", "-n"]
