@@ -10,18 +10,18 @@ RUN locale-gen en_US.UTF-8 && \
     echo 'LANG="en_US.utf-8"' > /etc/default/locale
 RUN dpkg-reconfigure locales
 
-# Install PHP5 and modules along with composer binary
-RUN apt-get -y install php5-fpm php5-pgsql php-apc php5-mcrypt php5-curl php5-gd php5-json php5-cli libssh2-php php5-sqlite
-RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php5/fpm/php.ini
-RUN sed -i -e "s/post_max_size = 8M/post_max_size = 20M/g" /etc/php5/fpm/php.ini
-RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 20M/g" /etc/php5/fpm/php.ini
+# Install PHP7 and modules along with composer binary
+RUN apt-get -y install php7-fpm php7-pgsql php7-mcrypt php7-curl php7-gd php7-json php7-cli libssh2-php php7-sqlite
+RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php7/fpm/php.ini
+RUN sed -i -e "s/post_max_size = 8M/post_max_size = 20M/g" /etc/php7/fpm/php.ini
+RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 20M/g" /etc/php7/fpm/php.ini
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
 # Configure nginx for PHP websites
-RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
-RUN echo "max_input_vars = 10000;" >> /etc/php5/fpm/php.ini
-RUN echo "date.timezone = Europe/London;" >> etc/php5/fpm/php.ini
+RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php7/fpm/php.ini
+RUN echo "max_input_vars = 10000;" >> /etc/php7/fpm/php.ini
+RUN echo "date.timezone = Europe/London;" >> etc/php7/fpm/php.ini
 
 # Setup supervisor
 ADD supervisor/nginx.conf /etc/supervisor/conf.d/
