@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y nginx supervisor curl git
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN locale-gen en_US.UTF-8 && \
-    echo 'LANG="en_US.UTF-8"' > /etc/default/locale
+    echo 'LANG="en_US.utf-8"' > /etc/default/locale
 RUN dpkg-reconfigure locales
 
 # Install PHP5 and modules along with composer binary
