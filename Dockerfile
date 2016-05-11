@@ -1,4 +1,4 @@
-FROM        ubuntu:15.04
+FROM        ubuntu:16.04
 MAINTAINER  Ross Riley "riley.ross@gmail.com"
 
 # Install nginx
