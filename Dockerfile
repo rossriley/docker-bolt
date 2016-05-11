@@ -11,7 +11,7 @@ RUN locale-gen en_US.UTF-8 && \
 RUN dpkg-reconfigure locales
 
 # Install PHP7 and modules along with composer binary
-RUN apt-get -y install php7-fpm php7-pgsql php7-mcrypt php7-curl php7-gd php7-json php7-cli libssh2-php php7-sqlite
+RUN apt-get -y install php7.0-fpm php7.0-pgsql php7.0-mcrypt php7.0-curl php7.0-gd php7.0-json php7.0-cli php-ssh2 php7.0-sqlite
 RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php7/fpm/php.ini
 RUN sed -i -e "s/post_max_size = 8M/post_max_size = 20M/g" /etc/php7/fpm/php.ini
 RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 20M/g" /etc/php7/fpm/php.ini
