@@ -19,6 +19,7 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
 # Configure nginx for PHP websites
+RUN mkdir /var/run/php
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php/7.0/fpm/php.ini
 RUN echo "max_input_vars = 10000;" >> /etc/php/7.0/fpm/php.ini
 RUN echo "date.timezone = Europe/London;" >> etc/php/7.0/fpm/php.ini
