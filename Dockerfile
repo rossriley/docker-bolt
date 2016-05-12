@@ -47,6 +47,7 @@ RUN chmod -R 0777 /var/www/app
 RUN cd /var/www/ && vendor/bin/nut database:update
 RUN cd /var/www/ && vendor/bin/nut user:add admin Admin admin@bolt.cm password root
 RUN mkdir -p /var/www/public/theme
+RUN mkdir -p /var/www/public/extensions
 RUN ln -sf /var/www/vendor/bolt/bolt/theme/base-2016 /var/www/public/theme/base-2016
 RUN ln -sf /var/www/vendor/bolt/bolt/theme /var/www/theme
 
