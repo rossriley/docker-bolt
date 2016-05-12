@@ -5,7 +5,6 @@ $configuration->setPath("web","public");
 $configuration->setPath("files","public/files");
 $configuration->setPath("themebase","public/theme");
 $configuration->getVerifier()->removeCheck('apache');
-$configuration->compat();
 $configuration->verify();
 $app = new Bolt\Application(array('resources'=>$configuration));
 $app->initialize();
