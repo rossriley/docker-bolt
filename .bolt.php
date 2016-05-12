@@ -7,6 +7,7 @@ $configuration->setPath("themebase", "public/theme");
 $configuration->getVerifier()->disableApacheChecks();
 $app = new Bolt\Application(array('resources'=>$configuration));
 putenv('COMPOSER_HOME=' . $app['resources']->getPath('cache/composer'));
+$app->initialize();
 
 $config = [
     'application' => $app,
