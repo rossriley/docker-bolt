@@ -42,6 +42,7 @@ EXPOSE 80 443
 ADD ./ /var/www/
 
 RUN chmod +x /var/www/start.sh
+RUN chmod -R 0777 /var/www/public
 RUN cd /var/www/ && composer update
 RUN chmod -R 0777 /var/www/app
 RUN cd /var/www/ && vendor/bin/nut database:update
