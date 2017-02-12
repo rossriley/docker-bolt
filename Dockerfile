@@ -25,21 +25,21 @@ RUN echo "max_input_vars = 10000;" >> /etc/php/7.0/fpm/php.ini
 RUN echo "date.timezone = Europe/London;" >> etc/php/7.0/fpm/php.ini
 
 # Setup supervisor
-ADD supervisor/nginx.conf /etc/supervisor/conf.d/
-ADD supervisor/php.conf /etc/supervisor/conf.d/
-ADD supervisor/user.conf /etc/supervisor/conf.d/
+COPY supervisor/nginx.conf /etc/supervisor/conf.d/
+COPY supervisor/php.conf /etc/supervisor/conf.d/
+COPY supervisor/user.conf /etc/supervisor/conf.d/
 
 # Disallow key checking
 RUN echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 
 # Adds the default server to nginx config
-ADD config/nginx.conf /etc/nginx/sites-available/default
+COPY config/nginx.conf /etc/nginx/sites-available/default
 
 # Internal Port Expose
 EXPOSE 80 443
 
-ADD ./ /var/www/
+COPY ./ /var/www/
 
 RUN chmod +x /var/www/start.sh
 RUN chmod -R 0777 /var/www/public
