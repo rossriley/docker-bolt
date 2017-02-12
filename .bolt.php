@@ -9,4 +9,9 @@ $configuration->verify();
 $app = new Bolt\Application(array('resources'=>$configuration));
 $app->initialize();
 
-return $app;
+$config = [
+    'application' => $app,
+    'resources' => null,
+];
+
+return $config;
