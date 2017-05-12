@@ -1,5 +1,4 @@
 #!/bin/bash
-composer update
 ./vendor/bin/nut database:update;
 mkdir -p ./app/cache;
 mkdir -p ./app/config;
