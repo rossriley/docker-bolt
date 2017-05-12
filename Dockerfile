@@ -15,7 +15,7 @@ RUN mv composer.phar /usr/local/bin/composer
 
 # Copy across the local files to the root directory
 ADD . /var/www/html/
-ADD ./server/apache-vhost.conf /etc/apache2/sites-enabled/
+ADD ./server/apache-vhost.conf /etc/apache2/sites-enabled/000-default.conf
 ADD ./server/php-config.ini /usr/local/etc/php/conf.d/php-config.ini
 RUN chmod +x /var/www/html/start.sh
 RUN cd /var/www/html && composer install
