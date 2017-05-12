@@ -1,6 +1,5 @@
 #!/bin/bash
 ./vendor/bin/nut database:update;
-chmod 0777 ./public/files;
 mkdir -p ./app/cache;
 mkdir -p ./app/config;
 mkdir -p ./app/database;
@@ -9,6 +8,7 @@ mkdir -p ./public/extensions/var;
 mkdir -p ./public/files;
 chmod -R 0777 ./app;
 chmod -R 0777 ./public/extensions;
+chmod 0777 ./public/files;
 IFS=","
 set -- $BOLT_EXT
 for element in $@
