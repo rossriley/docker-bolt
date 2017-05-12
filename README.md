@@ -57,4 +57,4 @@ services:
 ```
 
 This config will get you the latest 3.2.x release, note the additional environment variables
-you can set to install and configure.
+you can set to install and configure a theme, in this case the default Bolt theme.
