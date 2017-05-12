@@ -13,7 +13,7 @@ IFS=","
 set -- $BOLT_EXT
 for element in $@
 do
-    echo "Installing extestion $element";
+    echo "Installing extension $element";
     eval "./vendor/bin/nut extensions:install $element";
 done
 
@@ -23,6 +23,7 @@ then
     eval "./vendor/bin/nut config:set theme demo";
     eval "cp -prf extensions/vendor/$BOLT_THEME public/theme/demo"
     eval "cp -prf extensions/vendor/$BOLT_THEME public/theme/`basename $BOLT_THEME`"
+    eval "cp -prf vendor/bolt/bolt/files/* public/files/"
 else
   echo -e "BOLT_THEME not set\n"
 fi
