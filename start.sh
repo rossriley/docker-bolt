@@ -13,7 +13,6 @@ IFS=","
 set -- $BOLT_EXT
 for element in $@
 do
-    eval "./vendor/bin/nut config:set extensions/composer/minimum-stability dev";
     echo "Installing extestion $element";
     eval "./vendor/bin/nut extensions:install $element";
 done
