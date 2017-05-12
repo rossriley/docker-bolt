@@ -1,60 +1,18 @@
-FROM        ubuntu:16.04
+FROM        php:7.1-apache
 MAINTAINER  Ross Riley "riley.ross@gmail.com"
 
-# Install nginx
-ENV HOME /root
-RUN apt-get update && apt-get install -y nginx supervisor curl git
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN apt-get update && apt-get install -y libpq-dev git libpng-dev libjpeg62-turbo-dev libfreetype6-dev wget libxrender1 libfontconfig1 libsqlite3-dev sqlite3
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+		docker-php-ext-install gd && \
+        docker-php-ext-install pdo_sqlite && \
+        docker-php-ext-install exif && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
 
-RUN locale-gen en_US.UTF-8 && \
-    echo 'LANG="en_US.utf-8"' > /etc/default/locale
-RUN dpkg-reconfigure locales
+# Copy across the local files to the root directory
+ADD . /var/www/html/
+ADD ./server/apache-vhost.conf /etc/apache2/sites-enabled/
+ADD ./server/php-config.ini /usr/local/etc/php/conf.d/php-config.ini
+RUN chmod +x /var/www/html/start.sh
 
-# Install PHP7 and modules along with composer binary
-RUN apt-get -y install php7.0-fpm php7.0-pgsql php7.0-mcrypt php7.0-curl php7.0-gd php7.0-json php7.0-cli php-ssh2 php7.0-sqlite php7.0-mbstring php7.0-xml
-RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php/7.0/fpm/php.ini
-RUN sed -i -e "s/post_max_size = 8M/post_max_size = 20M/g" /etc/php/7.0/fpm/php.ini
-RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 20M/g" /etc/php/7.0/fpm/php.ini
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
-
-# Configure nginx for PHP websites
-RUN mkdir /var/run/php
-RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php/7.0/fpm/php.ini
-RUN echo "max_input_vars = 10000;" >> /etc/php/7.0/fpm/php.ini
-RUN echo "date.timezone = Europe/London;" >> etc/php/7.0/fpm/php.ini
-
-# Setup supervisor
-COPY supervisor/nginx.conf /etc/supervisor/conf.d/
-COPY supervisor/php.conf /etc/supervisor/conf.d/
-COPY supervisor/user.conf /etc/supervisor/conf.d/
-
-# Disallow key checking
-RUN echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
-
-
-# Adds the default server to nginx config
-COPY config/nginx.conf /etc/nginx/sites-available/default
-
-# Internal Port Expose
-EXPOSE 80 443
-
-COPY ./ /var/www/
-
-RUN chmod +x /var/www/start.sh
-RUN chmod -R 0777 /var/www/public
-RUN cd /var/www/ && composer update
-RUN mkdir -p /var/www/app/config
-RUN chmod -R 0777 /var/www/app
-RUN cd /var/www/ && vendor/bin/nut database:update
-RUN cd /var/www/ && vendor/bin/nut user:add admin Admin admin@bolt.cm password root
-RUN mkdir -p /var/www/public/theme
-RUN mkdir -p /var/www/public/extensions
-RUN mkdir -p /var/www/public/files
-RUN chmod -R 0777 /var/www/public/extensions
-RUN chmod -R 0777 /var/www/public/files
-RUN cp -r /var/www/vendor/bolt/bolt/files/* /var/www/public/files/
-RUN ln -sf /var/www/vendor/bolt/bolt/theme/base-2016 /var/www/public/theme/base-2016
-RUN ln -sf /var/www/vendor/bolt/bolt/theme /var/www/theme
-
-CMD ["/usr/bin/supervisord", "-n"]
+CMD ["/var/www/html/start.sh"]

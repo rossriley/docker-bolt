@@ -1,5 +1,14 @@
 #!/bin/bash
+./vendor/bin/nut database:update;
+chmod 0777 ./public/files;
+mkdir -p ./app/cache;
+mkdir -p ./app/config;
+mkdir -p ./app/database;
+mkdir -p ./public/extensions;
+mkdir -p ./public/extensions/var;
+mkdir -p ./public/files;
 chmod -R 0777 ./app;
+chmod -R 0777 ./public/extensions;
 IFS=","
 set -- $BOLT_EXT
 for element in $@
@@ -23,3 +32,6 @@ if [ -n "$BOLT_TITLE" ]
 then
     eval "./vendor/bin/nut config:set sitename '$BOLT_TITLE'";
 fi
+
+rm -f /var/run/apache2/apache2.pid
+exec apache2-foreground
