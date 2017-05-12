@@ -35,5 +35,26 @@ there are a few additional environment variables that you can pass, the one show
 the default Bolt theme.
 
 ```bash
-docker run -p 80 --name my_bolt_site -e APP_USER='my_bolt_site' -e APP_PASS='my_bolt_site_pw' -e APP_DB='my_bolt_site' -e BOLT_EXT='bolt/theme-2016 dev-master' -e BOLT_TITLE='My Bolt Site' -e BOLT_THEME='bolt/theme-2016' -d -t rossriley/docker-bolt
+docker run -p 80 --name my_bolt_site -e BOLT_EXT='bolt/theme-2016 dev-master' -e BOLT_TITLE='My Bolt Site' -e BOLT_THEME='bolt/theme-2016' -d -t rossriley/docker-bolt
 ```
+
+### Using Docker-Compose
+
+If you use `docker-compose` then all you need is a `docker-compose.yml` file that looks something 
+like this:
+
+```yaml
+version: '2'
+
+services:
+    bolt:
+        image: rossriley/docker-bolt:3.2
+        network_mode: bridge
+        environment:
+            - BOLT_EXT=bolt/theme-2016 dev-master
+            - BOLT_TITLE=My Bolt Site
+            - BOLT_THEME=bolt/theme-2016
+```
+
+This config will get you the latest 3.2.x release, note the additional environment variables
+you can set to install and configure.
