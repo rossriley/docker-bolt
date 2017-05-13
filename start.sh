@@ -8,6 +8,7 @@ mkdir -p ./public/files;
 chmod -R 0777 ./app;
 chmod -R 0777 ./public/extensions;
 chmod 0777 ./public/files;
+cp -n ./.bolt.seed.db app/database/bolt.db;
 IFS=","
 set -- $BOLT_EXT
 for element in $@

@@ -14,6 +14,8 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
 VOLUME ./app/database
+VOLUME ./extensions
+VOLUME ./public/files
 
 # Copy across the local files to the root directory
 ADD . /var/www/html/
