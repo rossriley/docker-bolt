@@ -59,7 +59,17 @@ services:
             - BOLT_EXT=bolt/theme-2016 dev-master
             - BOLT_TITLE=My Bolt Site
             - BOLT_THEME=bolt/theme-2016
+        volumes:
+            - ./db-data:/var/www/html/app/database
+            - ./files:/var/www/html/public/files
+            - ./extensions:/var/www/html/extensions
 ```
 
 This config will get you the latest 3.2.x release, note the additional environment variables
 you can set to install and configure a theme, in this case the default Bolt theme.
+
+A few volumes are also defined here which will allow you to persist the database, files
+and extensions to the host.
+
+Please note that you may want to define additional persistent volumes here depending on what
+files you allow the admin users to edit.
