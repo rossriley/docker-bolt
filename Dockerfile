@@ -13,6 +13,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+VOLUME ./app/database
+
 # Copy across the local files to the root directory
 ADD . /var/www/html/
 ADD ./server/apache-vhost.conf /etc/apache2/sites-enabled/000-default.conf
