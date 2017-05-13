@@ -8,6 +8,11 @@ It uses Apache, PHP-FPM and SQLite in a single service.
 It should be used in production with a separate http proxy container, we'd recommend
 jwilder/nginx-proxy which will allow you to define a virtual host for each container.
 
+### Supported Tags
+
+* `3.2`, `latest`
+
+
 ### Releases
 
 This repo mirrors the release branches of the main Bolt repo, starting with `release/3.2`
