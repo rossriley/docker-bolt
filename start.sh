@@ -5,8 +5,10 @@ mkdir -p ./app/config;
 mkdir -p ./public/extensions;
 mkdir -p ./public/extensions/var;
 mkdir -p ./public/files;
+mkdir -p ./extensions;
 chmod -R 0777 ./app;
 chmod -R 0777 ./public/extensions;
+chmod -R 0777 ./extensions;
 chmod 0777 ./public/files;
 IFS=","
 set -- $BOLT_EXT
