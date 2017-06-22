@@ -8,7 +8,6 @@ mkdir -p ./public/files;
 mkdir -p ./extensions;
 chmod -R 0777 ./app;
 chmod -R 0777 ./public/extensions;
-chmod -R 0777 ./extensions;
 chmod 0777 ./public/files;
 IFS=","
 set -- $BOLT_EXT
@@ -34,5 +33,6 @@ then
     eval "./vendor/bin/nut config:set sitename '$BOLT_TITLE'";
 fi
 
+chmod -R 0777 ./extensions;
 rm -f /var/run/apache2/apache2.pid
 exec apache2-foreground
