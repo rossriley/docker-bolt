@@ -33,7 +33,7 @@ docker pull rossriley/docker-bolt
 If you want to specify a specific tag then append that as below
 
 ```bash
-docker pull rossriley/docker-bolt:3.2
+docker pull rossriley/docker-bolt:3.3
 ```
 
 Once the pull has completed then you can launch a container using the `docker run` command,
@@ -54,7 +54,7 @@ version: '2'
 
 services:
     bolt:
-        image: rossriley/docker-bolt:3.2
+        image: rossriley/docker-bolt:3.3
         network_mode: bridge
         environment:
             - BOLT_EXT=bolt/theme-2016 dev-master
@@ -66,7 +66,7 @@ services:
             - ./extensions:/var/www/html/extensions
 ```
 
-This config will get you the latest 3.2.x release, note the additional environment variables
+This config will get you the latest 3.3.x release, note the additional environment variables
 you can set to install and configure a theme, in this case the default Bolt theme.
 
 A few volumes are also defined here which will allow you to persist the database, files
