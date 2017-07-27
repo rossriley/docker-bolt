@@ -6,6 +6,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 		docker-php-ext-install gd && \
         docker-php-ext-install pdo_sqlite && \
         docker-php-ext-install exif && \
+        docker-php-ext-install zip && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
