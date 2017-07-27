@@ -9,7 +9,7 @@
             "email": "riley.ross@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
