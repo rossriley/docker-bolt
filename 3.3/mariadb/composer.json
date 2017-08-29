@@ -1,0 +1,26 @@
+{
+    "name": "rossriley/docker-bolt",
+    "require": {
+        "bolt/bolt": "^3.3"
+    },
+    "authors": [
+        {
+            "name": "Ross Riley",
+            "email": "riley.ross@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Bolt\\Composer\\ScriptHandler::updateProject",
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ]
+    },
+    "extra": {
+        "bolt-web-dir": "./public"
+    }
+}
