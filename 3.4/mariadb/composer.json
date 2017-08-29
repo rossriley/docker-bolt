@@ -1,7 +1,7 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "dev-3.4@dev"
+        "bolt/bolt": "3.4.x-dev@dev"
     },
     "authors": [
         {
