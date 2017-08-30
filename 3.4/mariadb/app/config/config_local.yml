@@ -1,5 +1,6 @@
 database:
     driver: mysql
+    host: mysql
     username: %APP_USER%
     password: %APP_PASSWORD%
     databasename: %APP_USER%
