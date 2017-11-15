@@ -1,7 +1,7 @@
 {
     "name": "rossriley/docker-bolt",
     "require": {
-        "bolt/bolt": "3.4.x-dev@dev",
+        "bolt/bolt": "^3.4",
         "doctrine/dbal": "2.5.*"
     },
     "authors": [
