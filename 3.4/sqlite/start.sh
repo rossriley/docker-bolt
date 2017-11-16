@@ -1,5 +1,5 @@
 #!/bin/bash
-./vendor/bin/nut database:update;
+./vendor/bin/nut database:update -n;
 mkdir -p ./app/cache;
 mkdir -p ./app/config;
 mkdir -p ./public/extensions;
