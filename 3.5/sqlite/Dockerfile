@@ -1,4 +1,4 @@
-FROM        php:7.2-apache
+FROM        php:7.1-apache
 MAINTAINER  Ross Riley "riley.ross@gmail.com"
 
 RUN apt-get update && apt-get install -y libpq-dev git libpng-dev libjpeg62-turbo-dev libfreetype6-dev wget libxrender1 libfontconfig1 libsqlite3-dev sqlite3 curl git
