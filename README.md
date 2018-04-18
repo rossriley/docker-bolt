@@ -10,7 +10,8 @@ jwilder/nginx-proxy which will allow you to define a virtual host for each conta
 
 ### Supported Tags
 
-* `3.4`, `latest`
+* `3.5`, `latest`
+* `3.4`,
 * `3.3`,
 * `3.2`
 
