@@ -10,7 +10,8 @@ jwilder/nginx-proxy which will allow you to define a virtual host for each conta
 
 ### Supported Tags
 
-* `3.5`, `latest`
+* `3.6`, `latest`
+* `3.5`,
 * `3.4`,
 * `3.3`,
 * `3.2`
@@ -59,19 +60,19 @@ version: '2'
 
 services:
     bolt:
-        image: rossriley/docker-bolt:3.4
+        image: rossriley/docker-bolt:3.6
         network_mode: bridge
         environment:
-            - BOLT_EXT=bolt/theme-2016 dev-master
+            - BOLT_EXT=bolt/theme-2018 dev-master
             - BOLT_TITLE=My Bolt Site
-            - BOLT_THEME=bolt/theme-2016
+            - BOLT_THEME=bolt/theme-2018
         volumes:
             - ./db-data:/var/www/html/app/database
             - ./files:/var/www/html/public/files
             - ./extensions:/var/www/html/extensions
 ```
 
-This config will get you the latest 3.4.x release, note the additional environment variables
+This config will get you the latest 3.6.x release, note the additional environment variables
 you can set to install and configure a theme, in this case the default Bolt theme.
 
 A few volumes are also defined here which will allow you to persist the database, files
