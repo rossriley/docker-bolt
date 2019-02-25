@@ -1,0 +1,31 @@
+{
+    "name": "rossriley/docker-bolt",
+    "require": {
+        "bolt/bolt": "^3.6"
+    },
+    "authors": [
+        {
+            "name": "Ross Riley",
+            "email": "riley.ross@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Bolt\\Composer\\ScriptHandler::updateProject",
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-create-project-cmd": [
+            "Bolt\\Composer\\ScriptHandler::configureProject",
+            "Bolt\\Composer\\ScriptHandler::installThemesAndFiles",
+            "nut extensions:setup"
+        ]
+    },
+    "extra": {
+        "bolt-web-dir": "./public"
+    }
+}
